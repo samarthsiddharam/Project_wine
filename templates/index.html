@@ -1,0 +1,62 @@
+<html>
+<head>
+<style>
+.button {
+background-color: rgb(122, 119, 119);
+	border: 2px solid #070000;
+	color: rgb(94, 73, 73);
+	padding: 0.5em 0.5em;
+	text-align: center;
+	text-decoration: none;
+	font-size: 1em;
+	display: inline-block;
+	width: 18%;
+	border-radius: 5px;
+	box-shadow: 3px 3px 8px 0 #fdfcfc; 
+}
+body {
+  background-image: url("{{url_for('static', filename='wine_background.jpg')}}");
+  background-repeat: no-repeat;
+ background-size: 100% 100%;
+}
+h1{
+   background-color: #551111;
+  color: white;
+}
+h3{
+   background-color: rgb(122, 119, 119);
+  color: white;
+}
+
+
+</style>
+</head>
+<body>
+<center>
+
+
+<h1>Wine Quality</h1>
+<pre>
+<form action="{{ url_for('predict')}}" method="post">
+
+	<input type='text' name="fixed acidity" placeholder="Fixed Acidity" required= "required"/>
+	<input type='text' name="volatile acidity" placeholder="Volatile Acidity" required= "required"/>
+	<input type='text' name="citric acid" placeholder="Citric Acid" required= "required"/>
+	<input type='text' name="residual sugar" placeholder="Residual Sugar" required= "required"/>
+	<input type='text' name="chlorides" placeholder="Chlorides" required= "required"/>
+	<input type='text' name="free sulfur dioxide" placeholder="Free Sulfur Dioxide" required= "required"/>
+	<input type='text' name="total sulfur dioxide" placeholder="Total Sulfur Dioxide" required= "required"/>
+	<input type='text' name="density" placeholder="Density" required= "required"/>
+	<input type='text' name="pH" placeholder="pH" required= "required"/>
+	<input type='text' name="sulphates" placeholder="Sulphates" required= "required"/>
+	<input type='text' name="alcohol" placeholder="Alcohol" required= "required"/>
+
+	<button type="submit" class="button">Predict Wine Quality</button>
+</form>
+<textarea>
+	{{prediction_text}}
+</textarea>
+</pre>
+</center>
+</body>
+</html>
